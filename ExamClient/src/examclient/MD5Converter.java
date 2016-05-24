@@ -18,8 +18,8 @@ public class MD5Converter {
     /**
      *  Metoda konwertuje string przesłany w parametrze na hash md5.
      * 
-     * @param text  String - text do konwersji na MD5.
-     * @return      String - skonwertowany text do MD5.
+     *  @param text  String - text do konwersji na MD5.
+     *  @return      String - skonwertowany text do MD5.
      */
     public static String toMD5(String text){
         MessageDigest md;
