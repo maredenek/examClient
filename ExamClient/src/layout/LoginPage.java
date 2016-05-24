@@ -5,6 +5,12 @@
  */
 package layout;
 
+import examclient.MD5Converter;
+import examclient.TCPClient;
+import java.io.IOException;
+import java.net.ConnectException;
+import org.json.JSONObject;
+
 /**
  *
  * @author mariusz
@@ -43,11 +49,6 @@ public class LoginPage extends javax.swing.JFrame {
         setTitle("ExamSystem");
 
         login.setToolTipText("");
-        login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginActionPerformed(evt);
-            }
-        });
 
         logINButton.setText("Zaloguj");
         logINButton.addActionListener(new java.awt.event.ActionListener() {
@@ -144,12 +145,20 @@ public class LoginPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_loginActionPerformed
-
     private void logINButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logINButtonActionPerformed
+        JSONObject tab = new JSONObject();
+        tab.put( "login", login.getText() );
+        tab.put( "haslo", MD5Converter.toMD5( password.getText() ) );
         
+        JSONObject obj = new JSONObject();
+        obj.put("log_in", tab);
+        
+        try {
+            String response = new TCPClient( serverAddress.getText(), serverPort.getText() ).sendToServer( obj.toString() );
+            System.out.println("Odpowiedź serwera: " + response);
+        } 
+        catch (IOException ex) { ex.printStackTrace();}
+        catch (NumberFormatException ex) { System.out.println("Proszę podać właściwy port."); }
     }//GEN-LAST:event_logINButtonActionPerformed
 
 
