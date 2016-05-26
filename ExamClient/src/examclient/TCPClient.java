@@ -18,12 +18,13 @@ import java.net.Socket;
  */
 public class TCPClient {
     
-    private String serverIP;
-    private Integer serverPort;
+    private final String serverIP;
+    private final Integer serverPort;
 
     public TCPClient(String srvIP, String port) {
         this.serverIP = srvIP;
         this.serverPort = Integer.parseInt(port);
+
     }
     
     public String sendToServer(String text) throws IOException{
@@ -33,9 +34,11 @@ public class TCPClient {
         DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());   
         BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));   
  
-        outToServer.writeBytes(text + '\n');   
+        outToServer.writeBytes(text + '\n');
         sentence = inFromServer.readLine();   
   
+        outToServer.close();
+        inFromServer.close();
         clientSocket.close();
         
         return sentence;

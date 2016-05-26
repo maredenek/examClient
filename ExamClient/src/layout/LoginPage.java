@@ -9,6 +9,11 @@ import examclient.MD5Converter;
 import examclient.TCPClient;
 import java.io.IOException;
 import java.net.ConnectException;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.json.JSONObject;
 
 /**
@@ -156,9 +161,11 @@ public class LoginPage extends javax.swing.JFrame {
         try {
             String response = new TCPClient( serverAddress.getText(), serverPort.getText() ).sendToServer( obj.toString() );
             System.out.println("Odpowiedź serwera: " + response);
-        } 
-        catch (IOException ex) { ex.printStackTrace();}
-        catch (NumberFormatException ex) { System.out.println("Proszę podać właściwy port."); }
+        }
+        catch (ConnectException ex) { JOptionPane.showMessageDialog(this, "Nie można nawiązać połączenia z serwerem na wskazanym porcie."); }
+        catch (NumberFormatException | UnknownHostException ex) { JOptionPane.showMessageDialog(this, "Proszę podać poprawny adress i port serwera."); }
+        catch (IOException ex) { ex.printStackTrace(); }
+        
     }//GEN-LAST:event_logINButtonActionPerformed
 
 
