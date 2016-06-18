@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Klasa dostarczająca metod do konwersji String -> MD5. 
+ * Klasa dostarczająca metod do konwersji String na MD5. 
  *  
  * @author mariusz
  */
