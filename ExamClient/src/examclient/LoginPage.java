@@ -5,14 +5,14 @@
  */
 package examclient;
 
-import layout.ApplicationFrame;
+import static layout.ApplicationFrame.*;
 
 /**
  *  Klasa dostarcza metod do obslugi panelu logowania.
  * 
  * @author mariusz
  */
-public class LoginPage extends ApplicationFrame{
+public class LoginPage{
     
     /**
      * Metoda sprawdza czy pola formularza zostały uzupełnione. 
