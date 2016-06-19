@@ -15,20 +15,20 @@ public class Administrator extends Teacher{
     /**
      * Konstruktor.
      * 
-     * @param ip            String - ip serwera.
      * @param login         String - login użytkownika.
      * @param session_id    String - id sesji.
+     * @param kl            Obiekt TCPClient do obslugi polaczenia z serwerem.
      */
-    public Administrator(String ip, String login, String session_id) {
-        super(ip, login, session_id);
+    public Administrator(String login, String session_id, TCPClient kl) {
+        super(login, session_id, kl);
     }
     
-    public void addGroup(){
-        
+    public static String addGroup(){
+        return "";
     }
     
-    public void assignStudentToGroup(){
-        
+    public static String assignStudentToGroup(){
+        return "";
     }
     
 }
