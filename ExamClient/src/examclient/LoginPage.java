@@ -75,7 +75,7 @@ public class LoginPage{
         msg.put("log_in", tab);
 
         srvResponse = klient.sendToServer( msg.toString() );
-        
+
         if ( srvResponse.contains("Błąd")){
             JOptionPane.showMessageDialog(frame, srvResponse);
             return;
