@@ -15,28 +15,28 @@ public class Teacher extends Person{
     /**
      * Konstruktor.
      * 
-     * @param ip            String - ip serwera.
      * @param login         String - login użytkownika.
      * @param session_id    String - id sesji.
+     * @param kl            Obiekt TCPClient do obslugi polaczenia z serwerem.
      */
-    public Teacher(String ip, String login, String session_id) {
-        super(ip, login, session_id);
+    public Teacher(String login, String session_id, TCPClient kl) {
+        super(login, session_id, kl);
     }
     
-    public void addExam(){
-        
+    public static String addExam(){
+        return "";
     }
     
-    public void assignExamToGroup(){
-        
+    public static String assignExamToGroup(){
+        return "";
     }
     
-    public void checkAnswears(){
-        
+    public static String checkAnswears(){
+        return "";
     }
     
-    public void viewAnswears(){
-        
+    public static String viewAnswears(){
+        return "";
     }
     
 }
