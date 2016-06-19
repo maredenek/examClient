@@ -15,20 +15,20 @@ public class Student extends Person{
     /**
      * Konstruktor.
      * 
-     * @param ip            String - ip serwera.
      * @param login         String - login użytkownika.
      * @param session_id    String - id sesji.
+     * @param kl            Obiekt TCPClient do obslugi polaczenia z serwerem.
      */
-    public Student(String ip, String login, String session_id){
-        super(ip, login, session_id);
+    public Student(String login, String session_id, TCPClient kl){
+        super(login, session_id, kl);
     }
     
-    public void doExam(){
-        
+    public static String doExam(){
+        return "";
     }
     
-    public void checkResults(){
-        
+    public static String checkResults(){
+        return "";
     }
     
     
