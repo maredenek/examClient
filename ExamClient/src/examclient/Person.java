@@ -5,6 +5,8 @@
  */
 package examclient;
 
+import org.json.JSONObject;
+
 /**
  *  Klasa abstrakcyjna przechowujaca adres ip serwera, login zalogowanego uzytkownika
  *  oraz id sesji.
@@ -14,11 +16,6 @@ package examclient;
 public abstract class Person {
     
     /**
-     * Adres IP serwera.
-     */
-    protected String ip;
-    
-    /**
      * Login zalogowanego uzytkownika.
      */
     protected String login;
@@ -26,28 +23,23 @@ public abstract class Person {
     /**
      * Id sesji nadany przez serwer.
      */
-    protected String session_id;
+    protected static String session_id;
+    
+    /**
+     * Obiekt do obslugi polaczenia z serwerem.
+     */
+    protected static TCPClient klient;
     
     /**
      * Konstruktor.
      * 
-     * @param ip            IP serwera.
      * @param login         Login zalogowanego uzytkownika.
      * @param session_id    ID sesji nadany przez serwer.
      */
-    public Person(String ip, String login, String session_id){
-        this.ip = ip;
+    public Person(String login, String session_id, TCPClient kl){
         this.login = login;
         this.session_id = session_id;
-    }
-
-    /**
-     * Pobierz adress ip serwera.
-     * 
-     * @return  String z adresem ip serwera.
-     */
-    public String getIp() {
-        return ip;
+        this.klient = kl;
     }
 
     /**
@@ -68,8 +60,25 @@ public abstract class Person {
         return session_id;
     }
     
-    public void logOut(){
+    /**
+     *  Przeslanie do serwera komunikatu log_out oraz wyczyszczenie pol obiektu.
+     * @return 
+     */
+    public String logOut(){
+        JSONObject msg = new JSONObject();
+        msg.put("log_out", session_id);
         
+        login = null;
+        session_id = null;
+        
+        return klient.sendToServer(msg.toString());
+    }
+    
+    public static String sendRequest(String req){
+        JSONObject msg = new JSONObject();
+        msg.put(req, session_id);
+        
+        return klient.sendToServer(msg.toString());
     }
     
 }
