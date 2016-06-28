@@ -5,6 +5,7 @@
  */
 package layout;
 
+import examclient.Administrator;
 import examclient.LoginPage;
 import examclient.Person;
 import java.awt.Component;
@@ -69,6 +70,13 @@ public final class ApplicationFrame extends javax.swing.JFrame {
         chooseRolePanel = new javax.swing.JPanel();
         choosePanelButtonAdmin = new javax.swing.JButton();
         choosePanelButtonTeacher = new javax.swing.JButton();
+        AdminDodajGrupe = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        nazwaGrupy = new javax.swing.JTextField();
+        sendNewGroupCredentials = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        AdminButtonLogOut1 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(780, 507));
@@ -393,13 +401,11 @@ public final class ApplicationFrame extends javax.swing.JFrame {
         AdminPanelLayout.setVerticalGroup(
             AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AdminPanelLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AdminPanelLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel11))
-                    .addComponent(AdminButtonLogOut))
-                .addGap(115, 115, 115)
+                .addGap(18, 18, 18)
+                .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AdminButtonLogOut)
+                    .addComponent(jLabel11))
+                .addGap(109, 109, 109)
                 .addComponent(jLabel10)
                 .addGap(50, 50, 50)
                 .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -447,6 +453,84 @@ public final class ApplicationFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(chooseRolePanel, "card6");
+
+        AdminDodajGrupe.setMaximumSize(new java.awt.Dimension(779, 506));
+        AdminDodajGrupe.setMinimumSize(new java.awt.Dimension(779, 506));
+        AdminDodajGrupe.setName("adminDodajGrupe"); // NOI18N
+
+        jLabel12.setText("Nazwa grupy:");
+
+        nazwaGrupy.setToolTipText("");
+
+        sendNewGroupCredentials.setText("Dodaj");
+        sendNewGroupCredentials.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendNewGroupCredentialsActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Panel Administratora");
+
+        AdminButtonLogOut1.setText("Wyloguj");
+        AdminButtonLogOut1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        AdminButtonLogOut1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminButtonLogOut1ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("⃪ wróć");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AdminDodajGrupeLayout = new javax.swing.GroupLayout(AdminDodajGrupe);
+        AdminDodajGrupe.setLayout(AdminDodajGrupeLayout);
+        AdminDodajGrupeLayout.setHorizontalGroup(
+            AdminDodajGrupeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminDodajGrupeLayout.createSequentialGroup()
+                .addGroup(AdminDodajGrupeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AdminDodajGrupeLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(AdminButtonLogOut1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AdminDodajGrupeLayout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addGroup(AdminDodajGrupeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(sendNewGroupCredentials, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(AdminDodajGrupeLayout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(nazwaGrupy, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 217, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(AdminDodajGrupeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        AdminDodajGrupeLayout.setVerticalGroup(
+            AdminDodajGrupeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminDodajGrupeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AdminDodajGrupeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AdminButtonLogOut1)
+                    .addComponent(jLabel13))
+                .addGap(121, 121, 121)
+                .addGroup(AdminDodajGrupeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(nazwaGrupy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(sendNewGroupCredentials)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 217, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(24, 24, 24))
+        );
+
+        getContentPane().add(AdminDodajGrupe, "card7");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -501,12 +585,24 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_TeacherButtonViewAnswearsActionPerformed
 
     private void AdminButtonAddGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonAddGroupActionPerformed
-        System.out.println( Person.sendRequest("add_group") );
+        showPanel("adminDodajGrupe");
     }//GEN-LAST:event_AdminButtonAddGroupActionPerformed
 
     private void AdminButtonAssignStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonAssignStudentActionPerformed
         System.out.println( Person.sendRequest("assign_to_group") );
     }//GEN-LAST:event_AdminButtonAssignStudentActionPerformed
+
+    private void AdminButtonLogOut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonLogOut1ActionPerformed
+        StudentButtonLogOutActionPerformed(evt);
+    }//GEN-LAST:event_AdminButtonLogOut1ActionPerformed
+
+    private void sendNewGroupCredentialsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendNewGroupCredentialsActionPerformed
+        Administrator.addGroup(this);
+    }//GEN-LAST:event_sendNewGroupCredentialsActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        showPanel("AdminPanel");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -599,12 +695,22 @@ public final class ApplicationFrame extends javax.swing.JFrame {
         return serverPort.getText();
     }
     
+    /**
+     * 
+     * @return 
+     */
+    public String getNewGroupName(){
+        return nazwaGrupy.getText();
+    }
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AdminButtonAddGroup;
     private javax.swing.JButton AdminButtonAssignStudent;
     private javax.swing.JButton AdminButtonLogOut;
+    private javax.swing.JButton AdminButtonLogOut1;
+    private javax.swing.JPanel AdminDodajGrupe;
     private javax.swing.JPanel AdminPanel;
     private javax.swing.JPanel LoginPanel;
     private javax.swing.JButton StudentButtonCheckResults;
@@ -620,9 +726,12 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private javax.swing.JButton choosePanelButtonAdmin;
     private javax.swing.JButton choosePanelButtonTeacher;
     private javax.swing.JPanel chooseRolePanel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -633,7 +742,9 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JButton logINButton;
     private javax.swing.JTextField login;
+    private javax.swing.JTextField nazwaGrupy;
     private javax.swing.JPasswordField password;
+    private javax.swing.JButton sendNewGroupCredentials;
     private javax.swing.JTextField serverAddress;
     private javax.swing.JTextField serverPort;
     // End of variables declaration//GEN-END:variables
