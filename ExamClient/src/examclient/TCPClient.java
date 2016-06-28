@@ -56,9 +56,9 @@ public class TCPClient {
             inFromServer.close();
         }
         catch(UnknownHostException ex){ return "Błąd: proszę podać poprawny adress serwera."; }
-        catch(ConnectException ex) { return "Błąd: nie można nawiązać połączenia z serwerem na wskazanym porcie."; }
+        catch(ConnectException ex) { return "Błąd: nie można nawiązać połączenia z serwerem. Sprobuj ponownie później."; }
         catch(SocketException ex) {return "Błąd: nie można polaczyc sie ze wskazana siecia. Sprawdz podane dane.";}
-        catch(IOException ex){ ex.printStackTrace(); return "Błąd";}
+        catch(IOException ex){ ex.printStackTrace(); return "Błąd: IOException";}
         
         return response;
     }
