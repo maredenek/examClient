@@ -5,6 +5,10 @@
  */
 package examclient;
 
+import javax.swing.JOptionPane;
+import layout.ApplicationFrame;
+import org.json.JSONObject;
+
 /**
  *  Klasa dostarczająca metod dla roli Administratora.
  * 
@@ -23,8 +27,41 @@ public class Administrator extends Teacher{
         super(login, session_id, kl);
     }
     
-    public static String addGroup(){
-        return "";
+    public static void addGroup(ApplicationFrame frame){
+        
+        JSONObject msg = new JSONObject();
+        JSONObject obj = new JSONObject();
+        String nazwaGrupy = frame.getNewGroupName();
+        
+        //sprawdzenie czy pole z nazwa grupy nie jest puste
+        if( nazwaGrupy.equals("") ){
+            JOptionPane.showMessageDialog(frame, "Proszę podać nazwę grupy!");
+            return;
+        }
+        
+        obj.put("name", nazwaGrupy);
+        obj.put("session_id", session_id);
+        
+        msg.put("add_group", obj);
+        
+        String message = klient.sendToServer(msg.toString());
+        
+        //sprawdzenie czy nie nastąpiło zerwanie połączenia z serwerem
+        if( message.contains("Błąd") ){
+            JOptionPane.showMessageDialog(frame, message);
+            return;
+        }
+        
+        //sprawdzenie odpowiedzi serwera
+        JSONObject response = new JSONObject(message);
+        
+        if( response.has("error") )
+            JOptionPane.showMessageDialog(frame, response.get("error"));
+        else{
+            JOptionPane.showMessageDialog(frame, response.get("message"));
+            frame.showPanel("AdminPanel");
+        }
+        
     }
     
     public static String assignStudentToGroup(){
