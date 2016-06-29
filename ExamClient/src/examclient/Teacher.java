@@ -5,6 +5,8 @@
  */
 package examclient;
 
+import layout.ApplicationFrame;
+
 /**
  *  Klasa dostarczająca metod dla roli Egzaminatora.
  * 
@@ -19,8 +21,8 @@ public class Teacher extends Person{
      * @param session_id    String - id sesji.
      * @param kl            Obiekt TCPClient do obslugi polaczenia z serwerem.
      */
-    public Teacher(String login, String session_id, TCPClient kl) {
-        super(login, session_id, kl);
+    public Teacher(String login, String session_id, TCPClient kl, ApplicationFrame fr) {
+        super(login, session_id, kl, fr);
     }
     
     public static String addExam(){

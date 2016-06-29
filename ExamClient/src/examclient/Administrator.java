@@ -22,12 +22,13 @@ public class Administrator extends Teacher{
      * @param login         String - login użytkownika.
      * @param session_id    String - id sesji.
      * @param kl            Obiekt TCPClient do obslugi polaczenia z serwerem.
+     * @param fr
      */
-    public Administrator(String login, String session_id, TCPClient kl) {
-        super(login, session_id, kl);
+    public Administrator(String login, String session_id, TCPClient kl, ApplicationFrame fr) {
+        super(login, session_id, kl, fr);
     }
     
-    public static void addGroup(ApplicationFrame frame){
+    public static void addGroup(){
         
         JSONObject msg = new JSONObject();
         JSONObject obj = new JSONObject();
@@ -65,6 +66,10 @@ public class Administrator extends Teacher{
     }
     
     public static String assignStudentToGroup(){
+        
+        //String[] users = Person.sendRequest("get_users");
+        //String[] groups = Person.sendRequest("get_groups");
+        
         return "";
     }
     

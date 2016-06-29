@@ -19,18 +19,25 @@ public class ServerHandler {
         switch(role){
             case "0":
                 fr.showPanel("StudentPanel");
-                fr.setRole( new Student(fr.getLogin(), sessionID, client) );
+                fr.setRole( new Student(fr.getLogin(), sessionID, client, fr) );
                 break;
             case "1": 
                 fr.showPanel("TeacherPanel");
-                fr.setRole( new Teacher(fr.getLogin(), sessionID, client) );
+                fr.setRole( new Teacher(fr.getLogin(), sessionID, client, fr) );
                 break;
             case "2":
                 fr.showPanel("chooseRolePanel");
-                fr.setRole( new Administrator(fr.getLogin(), sessionID, client) );
+                fr.setRole( new Administrator(fr.getLogin(), sessionID, client,fr) );
         }
     }
     
+    /**
+     * 
+     * @param str
+     * @param frame
+     * @param client
+     * @return 
+     */
     public static String parseServerResponse(String str, ApplicationFrame frame, TCPClient client){
         
         JSONObject msg = new JSONObject(str);
@@ -42,8 +49,12 @@ public class ServerHandler {
                 return "ok";
             case "error":
                 return msg.getString("error");
+            case "groupsList":
+                return "";
+            case "studentsList":
+                return "";
             default:
-                return "blad";
+                return ("Nie rozpoznano odpowiedzi serwera: " + str);
                 
         }
     }

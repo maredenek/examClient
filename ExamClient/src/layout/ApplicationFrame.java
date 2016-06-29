@@ -77,6 +77,15 @@ public final class ApplicationFrame extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         AdminButtonLogOut1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        AdminPrzypiszStudentaGrupie = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        AdminButtonLogOut2 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        listaStudentow = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        listaGrup = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(780, 507));
@@ -532,6 +541,88 @@ public final class ApplicationFrame extends javax.swing.JFrame {
 
         getContentPane().add(AdminDodajGrupe, "card7");
 
+        AdminPrzypiszStudentaGrupie.setName("AdminPrzypiszStudentaGrupie"); // NOI18N
+
+        jLabel14.setText("Panel Administratora");
+
+        AdminButtonLogOut2.setText("Wyloguj");
+        AdminButtonLogOut2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        AdminButtonLogOut2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminButtonLogOut2ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("⃪ wróć");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        listaStudentow.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel15.setText("Przypisz ");
+
+        jLabel16.setText("do grupy");
+
+        listaGrup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton3.setText("Przypisz");
+
+        javax.swing.GroupLayout AdminPrzypiszStudentaGrupieLayout = new javax.swing.GroupLayout(AdminPrzypiszStudentaGrupie);
+        AdminPrzypiszStudentaGrupie.setLayout(AdminPrzypiszStudentaGrupieLayout);
+        AdminPrzypiszStudentaGrupieLayout.setHorizontalGroup(
+            AdminPrzypiszStudentaGrupieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminPrzypiszStudentaGrupieLayout.createSequentialGroup()
+                .addGroup(AdminPrzypiszStudentaGrupieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AdminPrzypiszStudentaGrupieLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(AdminPrzypiszStudentaGrupieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AdminPrzypiszStudentaGrupieLayout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(AdminButtonLogOut2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(AdminPrzypiszStudentaGrupieLayout.createSequentialGroup()
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(AdminPrzypiszStudentaGrupieLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(AdminPrzypiszStudentaGrupieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(AdminPrzypiszStudentaGrupieLayout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(listaStudentow, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel16)
+                                .addGap(18, 18, 18)
+                                .addComponent(listaGrup, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 68, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        AdminPrzypiszStudentaGrupieLayout.setVerticalGroup(
+            AdminPrzypiszStudentaGrupieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminPrzypiszStudentaGrupieLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AdminPrzypiszStudentaGrupieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AdminButtonLogOut2)
+                    .addComponent(jLabel14))
+                .addGap(159, 159, 159)
+                .addGroup(AdminPrzypiszStudentaGrupieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(listaStudentow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listaGrup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16))
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18))
+        );
+
+        getContentPane().add(AdminPrzypiszStudentaGrupie, "card8");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -589,7 +680,8 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminButtonAddGroupActionPerformed
 
     private void AdminButtonAssignStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonAssignStudentActionPerformed
-        System.out.println( Person.sendRequest("assign_to_group") );
+        showPanel("AdminPrzypiszStudentaGrupie");
+        Administrator.assignStudentToGroup();
     }//GEN-LAST:event_AdminButtonAssignStudentActionPerformed
 
     private void AdminButtonLogOut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonLogOut1ActionPerformed
@@ -597,12 +689,20 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminButtonLogOut1ActionPerformed
 
     private void sendNewGroupCredentialsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendNewGroupCredentialsActionPerformed
-        Administrator.addGroup(this);
+        Administrator.addGroup();
     }//GEN-LAST:event_sendNewGroupCredentialsActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         showPanel("AdminPanel");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void AdminButtonLogOut2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonLogOut2ActionPerformed
+        StudentButtonLogOutActionPerformed(evt);
+    }//GEN-LAST:event_AdminButtonLogOut2ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        showPanel("AdminPanel");
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -710,8 +810,10 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private javax.swing.JButton AdminButtonAssignStudent;
     private javax.swing.JButton AdminButtonLogOut;
     private javax.swing.JButton AdminButtonLogOut1;
+    private javax.swing.JButton AdminButtonLogOut2;
     private javax.swing.JPanel AdminDodajGrupe;
     private javax.swing.JPanel AdminPanel;
+    private javax.swing.JPanel AdminPrzypiszStudentaGrupie;
     private javax.swing.JPanel LoginPanel;
     private javax.swing.JButton StudentButtonCheckResults;
     private javax.swing.JButton StudentButtonDoExam;
@@ -727,11 +829,16 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private javax.swing.JButton choosePanelButtonTeacher;
     private javax.swing.JPanel chooseRolePanel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -740,6 +847,8 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JComboBox<String> listaGrup;
+    private javax.swing.JComboBox<String> listaStudentow;
     private javax.swing.JButton logINButton;
     private javax.swing.JTextField login;
     private javax.swing.JTextField nazwaGrupy;

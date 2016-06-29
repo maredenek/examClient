@@ -49,9 +49,11 @@ public class TCPClient {
             DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());   
             BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));   
 
+            System.out.println("[KLIENT]: " + text);
             outToServer.writeBytes(text + '\n');
             response = inFromServer.readLine();   
-
+            
+            System.out.println("[SERWER]: " + response);
             outToServer.close();
             inFromServer.close();
         }

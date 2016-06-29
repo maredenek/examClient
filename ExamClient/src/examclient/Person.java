@@ -5,6 +5,7 @@
  */
 package examclient;
 
+import layout.ApplicationFrame;
 import org.json.JSONObject;
 
 /**
@@ -31,15 +32,21 @@ public abstract class Person {
     protected static TCPClient klient;
     
     /**
+     * Okno aplikacji.
+     */
+    protected static ApplicationFrame frame;
+    
+    /**
      * Konstruktor.
      * 
      * @param login         Login zalogowanego uzytkownika.
      * @param session_id    ID sesji nadany przez serwer.
      */
-    public Person(String login, String session_id, TCPClient kl){
+    public Person(String login, String session_id, TCPClient kl, ApplicationFrame fr){
         this.login = login;
         this.session_id = session_id;
         this.klient = kl;
+        this.frame = fr;
     }
 
     /**
