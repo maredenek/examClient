@@ -16,6 +16,9 @@ import org.json.JSONObject;
  */
 public class LoginPage{
     
+    private static ApplicationFrame appFrame;
+    private static TCPClient kl;
+    
     /**
      * Metoda sprawdza czy pola formularza zostały uzupełnione. 
      * 
@@ -42,6 +45,7 @@ public class LoginPage{
      * @param frame     Frame aplikacji.
      */
     public static void logIn(ApplicationFrame frame){
+        appFrame = frame;
         //sprawdzanie czy login i haslo zostaly podane
         if ( areFieldsEmpty(frame) ) {
             JOptionPane.showMessageDialog(frame, "Żadne pole formularza nie może być puste!");
@@ -65,7 +69,7 @@ public class LoginPage{
         }
         
         //tworzenie obiektu do komunikacji z serwerem
-        TCPClient klient = new TCPClient(frame.getServerAddr(), port);
+        kl = new TCPClient(frame.getServerAddr(), port);
         
         JSONObject tab = new JSONObject();
         tab.put( "login", loginName );
@@ -74,18 +78,41 @@ public class LoginPage{
         JSONObject msg = new JSONObject();
         msg.put("log_in", tab);
 
-        srvResponse = klient.sendToServer( msg.toString() );
+        srvResponse = kl.sendToServer( msg.toString() );
 
         if ( srvResponse.contains("Błąd")){
             JOptionPane.showMessageDialog(frame, srvResponse);
             return;
         }
         
-        status = ServerHandler.parseServerResponse(srvResponse, frame, klient);
+        status = ServerHandler.parseServerResponse(srvResponse);
         
         if ( !status.equals("ok") )
             JOptionPane.showMessageDialog(frame, status);
         
+    }
+    
+    /**
+     * 
+     * @param sessionID
+     * @param fr
+     * @param client 
+     */
+    public static void chooseRole(String sessionID){
+        String role = ""+sessionID.charAt(32);
+        switch(role){
+            case "0":
+                appFrame.showPanel("StudentPanel");
+                appFrame.setRole( new Student(appFrame.getLogin(), sessionID, kl, appFrame) );
+                break;
+            case "1": 
+                appFrame.showPanel("TeacherPanel");
+                appFrame.setRole( new Teacher(appFrame.getLogin(), sessionID, kl, appFrame) );
+                break;
+            case "2":
+                appFrame.showPanel("chooseRolePanel");
+                appFrame.setRole( new Administrator(appFrame.getLogin(), sessionID, kl, appFrame) );
+        }
     }
     
 }
