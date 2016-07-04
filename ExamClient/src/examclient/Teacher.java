@@ -5,7 +5,11 @@
  */
 package examclient;
 
+import static examclient.Administrator.getTab;
+import static examclient.Person.frame;
+import javax.swing.JOptionPane;
 import layout.ApplicationFrame;
+import org.json.JSONObject;
 
 /**
  *  Klasa dostarczająca metod dla roli Egzaminatora.
@@ -29,8 +33,53 @@ public class Teacher extends Person{
         return "";
     }
     
-    public static String assignExamToGroup(){
-        return "";
+    public static void prepareAssignmentPanel(){
+        String jsonExams = Person.sendRequest("get_exams");
+        String jsonGroups = Person.sendRequest("get_groups");
+        String statusExams = ServerHandler.parseServerResponse(jsonExams);
+        String statusGroups = ServerHandler.parseServerResponse(jsonGroups);
+        
+        if( !statusExams.contains("ok") ){
+            JOptionPane.showMessageDialog(frame, statusExams);
+            frame.showPanel("TeacherPanel");
+            return;
+        }
+        
+        if( !statusGroups.contains("ok") ){
+            JOptionPane.showMessageDialog(frame, statusGroups);
+            frame.showPanel("TeacherPanel");
+            return;
+        }
+        
+        frame.listaEgzaminow.removeAllItems();
+        for (String s : getTab(jsonExams))
+            frame.listaEgzaminow.addItem(s);
+        
+        frame.listaGrup1.removeAllItems();
+        for (String s : getTab(jsonGroups))
+            frame.listaGrup1.addItem(s);
+    }
+    
+    public static void assignExamToGroup(){
+        JSONObject request = new JSONObject();
+        JSONObject assignment = new JSONObject();
+        assignment.put("exam", (String)frame.listaEgzaminow.getSelectedItem());
+        assignment.put("group", (String)frame.listaGrup1.getSelectedItem());
+        
+        request.put("assign_exam_to_group", session_id);
+        request.put("assignment", assignment);
+        
+        String response = ServerHandler.parseServerResponse(
+                klient.sendToServer(request.toString())
+        );
+        
+        if( !response.equals("ok") ){
+            JOptionPane.showMessageDialog(frame, response);
+            frame.showPanel("AdminPanel");
+        }else{
+            JOptionPane.showMessageDialog(frame, "Przypisano egzamin grupie");
+            frame.showPanel("AdminPanel");
+        }
     }
     
     public static String checkAnswears(){

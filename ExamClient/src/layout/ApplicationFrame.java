@@ -8,6 +8,7 @@ package layout;
 import examclient.Administrator;
 import examclient.LoginPage;
 import examclient.Person;
+import examclient.Teacher;
 import java.awt.Component;
 
 /**
@@ -86,11 +87,18 @@ public final class ApplicationFrame extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         listaGrup = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
+        TeacherPrzypiszEgzaminGrupie = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        AdminButtonLogOut3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        listaEgzaminow = new javax.swing.JComboBox<>();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        listaGrup1 = new javax.swing.JComboBox<>();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(780, 507));
         setMinimumSize(new java.awt.Dimension(780, 507));
-        setPreferredSize(new java.awt.Dimension(780, 507));
         getContentPane().setLayout(new java.awt.CardLayout());
 
         LoginPanel.setMaximumSize(new java.awt.Dimension(779, 506));
@@ -569,6 +577,11 @@ public final class ApplicationFrame extends javax.swing.JFrame {
         listaGrup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton3.setText("Przypisz");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout AdminPrzypiszStudentaGrupieLayout = new javax.swing.GroupLayout(AdminPrzypiszStudentaGrupie);
         AdminPrzypiszStudentaGrupie.setLayout(AdminPrzypiszStudentaGrupieLayout);
@@ -623,6 +636,93 @@ public final class ApplicationFrame extends javax.swing.JFrame {
 
         getContentPane().add(AdminPrzypiszStudentaGrupie, "card8");
 
+        TeacherPrzypiszEgzaminGrupie.setName("TeacherPrzypiszEgzaminGrupie"); // NOI18N
+
+        jLabel17.setText("Panel Egzaminatora");
+
+        AdminButtonLogOut3.setText("Wyloguj");
+        AdminButtonLogOut3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        AdminButtonLogOut3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminButtonLogOut3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("⃪ wróć");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        listaEgzaminow.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel18.setText("Przypisz ");
+
+        jLabel19.setText("do grupy");
+
+        listaGrup1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton5.setText("Przypisz");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout TeacherPrzypiszEgzaminGrupieLayout = new javax.swing.GroupLayout(TeacherPrzypiszEgzaminGrupie);
+        TeacherPrzypiszEgzaminGrupie.setLayout(TeacherPrzypiszEgzaminGrupieLayout);
+        TeacherPrzypiszEgzaminGrupieLayout.setHorizontalGroup(
+            TeacherPrzypiszEgzaminGrupieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TeacherPrzypiszEgzaminGrupieLayout.createSequentialGroup()
+                .addGroup(TeacherPrzypiszEgzaminGrupieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TeacherPrzypiszEgzaminGrupieLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(TeacherPrzypiszEgzaminGrupieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(TeacherPrzypiszEgzaminGrupieLayout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(AdminButtonLogOut3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(TeacherPrzypiszEgzaminGrupieLayout.createSequentialGroup()
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(TeacherPrzypiszEgzaminGrupieLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(TeacherPrzypiszEgzaminGrupieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(TeacherPrzypiszEgzaminGrupieLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(listaEgzaminow, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel19)
+                                .addGap(18, 18, 18)
+                                .addComponent(listaGrup1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 68, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        TeacherPrzypiszEgzaminGrupieLayout.setVerticalGroup(
+            TeacherPrzypiszEgzaminGrupieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TeacherPrzypiszEgzaminGrupieLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(TeacherPrzypiszEgzaminGrupieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AdminButtonLogOut3)
+                    .addComponent(jLabel17))
+                .addGap(159, 159, 159)
+                .addGroup(TeacherPrzypiszEgzaminGrupieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(listaEgzaminow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listaGrup1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel19))
+                .addGap(18, 18, 18)
+                .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(18, 18, 18))
+        );
+
+        getContentPane().add(TeacherPrzypiszEgzaminGrupie, "card8");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -668,7 +768,8 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_TeacherButtonCheckAnswearsActionPerformed
 
     private void TeacherButtonAssignExamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeacherButtonAssignExamActionPerformed
-        System.out.println( Person.sendRequest("assign_exam_to_group") );
+        showPanel("TeacherPrzypiszEgzaminGrupie");
+        Teacher.prepareAssignmentPanel();
     }//GEN-LAST:event_TeacherButtonAssignExamActionPerformed
 
     private void TeacherButtonViewAnswearsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeacherButtonViewAnswearsActionPerformed
@@ -681,7 +782,7 @@ public final class ApplicationFrame extends javax.swing.JFrame {
 
     private void AdminButtonAssignStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonAssignStudentActionPerformed
         showPanel("AdminPrzypiszStudentaGrupie");
-        Administrator.assignStudentToGroup();
+        Administrator.prepareAssignmentPanel();
     }//GEN-LAST:event_AdminButtonAssignStudentActionPerformed
 
     private void AdminButtonLogOut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonLogOut1ActionPerformed
@@ -703,6 +804,22 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         showPanel("AdminPanel");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Administrator.assignStudentToGroup();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void AdminButtonLogOut3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonLogOut3ActionPerformed
+        StudentButtonLogOutActionPerformed(evt);
+    }//GEN-LAST:event_AdminButtonLogOut3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        showPanel("TeacherPanel");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        Teacher.assignExamToGroup();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -811,6 +928,7 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private javax.swing.JButton AdminButtonLogOut;
     private javax.swing.JButton AdminButtonLogOut1;
     private javax.swing.JButton AdminButtonLogOut2;
+    private javax.swing.JButton AdminButtonLogOut3;
     private javax.swing.JPanel AdminDodajGrupe;
     private javax.swing.JPanel AdminPanel;
     private javax.swing.JPanel AdminPrzypiszStudentaGrupie;
@@ -825,12 +943,15 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private javax.swing.JButton TeacherButtonLogOut;
     private javax.swing.JButton TeacherButtonViewAnswears;
     private javax.swing.JPanel TeacherPanel;
+    private javax.swing.JPanel TeacherPrzypiszEgzaminGrupie;
     private javax.swing.JButton choosePanelButtonAdmin;
     private javax.swing.JButton choosePanelButtonTeacher;
     private javax.swing.JPanel chooseRolePanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -839,6 +960,9 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -847,8 +971,10 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JComboBox<String> listaGrup;
-    private javax.swing.JComboBox<String> listaStudentow;
+    public javax.swing.JComboBox<String> listaEgzaminow;
+    public javax.swing.JComboBox<String> listaGrup;
+    public javax.swing.JComboBox<String> listaGrup1;
+    public javax.swing.JComboBox<String> listaStudentow;
     private javax.swing.JButton logINButton;
     private javax.swing.JTextField login;
     private javax.swing.JTextField nazwaGrupy;

@@ -65,12 +65,82 @@ public class Administrator extends Teacher{
         
     }
     
-    public static String assignStudentToGroup(){
+    /**
+     * 
+     */
+    public static void prepareAssignmentPanel(){
         
-        //String[] users = Person.sendRequest("get_users");
-        //String[] groups = Person.sendRequest("get_groups");
+        String jsonUsers = Person.sendRequest("get_students");
+        String jsonGroups = Person.sendRequest("get_groups");
+        String statusUsers = ServerHandler.parseServerResponse(jsonUsers);
+        String statusGroups = ServerHandler.parseServerResponse(jsonGroups);
         
-        return "";
+        if( !statusUsers.contains("ok") ){
+            JOptionPane.showMessageDialog(frame, statusUsers);
+            frame.showPanel("AdminPanel");
+            return;
+        }
+        
+        if( !statusGroups.contains("ok") ){
+            JOptionPane.showMessageDialog(frame, statusGroups);
+            frame.showPanel("AdminPanel");
+            return;
+        }
+        
+        frame.listaStudentow.removeAllItems();
+        for (String s : getTab(jsonUsers))
+            frame.listaStudentow.addItem(s);
+        
+        frame.listaGrup.removeAllItems();
+        for (String s : getTab(jsonGroups))
+            frame.listaGrup.addItem(s);
+        
+    }
+    
+    /**
+     * 
+     */
+    public static void assignStudentToGroup(){
+        
+        JSONObject request = new JSONObject();
+        JSONObject assignment = new JSONObject();
+        assignment.put("user", (String)frame.listaStudentow.getSelectedItem());
+        assignment.put("group", (String)frame.listaGrup.getSelectedItem());
+        
+        request.put("assign_to_group", session_id);
+        request.put("assignment", assignment);
+        
+        String response = ServerHandler.parseServerResponse(
+                klient.sendToServer(request.toString())
+        );
+        
+        if( !response.equals("ok") ){
+            JOptionPane.showMessageDialog(frame, response);
+            frame.showPanel("AdminPanel");
+        }else{
+            JOptionPane.showMessageDialog(frame, "Przypisano studenta do grupy");
+            frame.showPanel("AdminPanel");
+        }
+        
+    }
+    
+    /**
+     * 
+     * @param json
+     * @return 
+     */
+    public static String[] getTab(String json){
+        
+        JSONObject jsonObj = new JSONObject(json);
+        String key = jsonObj.keys().next();
+        JSONObject list = jsonObj.getJSONObject(key);
+        String[] tab = new String[list.length()];
+        
+        for (int i=0; i<list.length(); i++){
+            tab[i] = list.getString(Integer.toString(i));
+        }
+        
+        return tab;
     }
     
 }

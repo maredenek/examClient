@@ -5,7 +5,6 @@
  */
 package examclient;
 
-import layout.ApplicationFrame;
 import org.json.JSONObject;
 
 /**
@@ -14,45 +13,32 @@ import org.json.JSONObject;
  */
 public class ServerHandler {
     
-    private static void chooseRole(String sessionID, ApplicationFrame fr, TCPClient client){
-        String role = ""+sessionID.charAt(32);
-        switch(role){
-            case "0":
-                fr.showPanel("StudentPanel");
-                fr.setRole( new Student(fr.getLogin(), sessionID, client, fr) );
-                break;
-            case "1": 
-                fr.showPanel("TeacherPanel");
-                fr.setRole( new Teacher(fr.getLogin(), sessionID, client, fr) );
-                break;
-            case "2":
-                fr.showPanel("chooseRolePanel");
-                fr.setRole( new Administrator(fr.getLogin(), sessionID, client,fr) );
-        }
-    }
-    
     /**
      * 
      * @param str
-     * @param frame
-     * @param client
      * @return 
      */
-    public static String parseServerResponse(String str, ApplicationFrame frame, TCPClient client){
+    public static String parseServerResponse(String str){
         
         JSONObject msg = new JSONObject(str);
         String key = msg.keys().next();
         
         switch(key){
             case "logged":
-                chooseRole(msg.getString("logged"), frame, client);
+                LoginPage.chooseRole(msg.getString("logged") );
                 return "ok";
             case "error":
                 return msg.getString("error");
             case "groupsList":
-                return "";
+                return "ok";
             case "studentsList":
-                return "";
+                return "ok";
+            case "student_assigned":
+                return "ok";
+            case "examsList":
+                return "ok";
+            case "exam_assigned":
+                return "ok";
             default:
                 return ("Nie rozpoznano odpowiedzi serwera: " + str);
                 
