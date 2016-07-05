@@ -39,6 +39,10 @@ public class ServerHandler {
                 return "ok";
             case "exam_assigned":
                 return "ok";
+            case "results":
+                return "ok";
+            case "students_answears":
+                return "ok";
             default:
                 return ("Nie rozpoznano odpowiedzi serwera: " + str);
                 

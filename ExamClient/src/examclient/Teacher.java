@@ -7,8 +7,11 @@ package examclient;
 
 import static examclient.Administrator.getTab;
 import static examclient.Person.frame;
+import java.util.Iterator;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import layout.ApplicationFrame;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -24,15 +27,23 @@ public class Teacher extends Person{
      * @param login         String - login użytkownika.
      * @param session_id    String - id sesji.
      * @param kl            Obiekt TCPClient do obslugi polaczenia z serwerem.
+     * @param fr
      */
     public Teacher(String login, String session_id, TCPClient kl, ApplicationFrame fr) {
         super(login, session_id, kl, fr);
     }
     
+    /**
+     * 
+     * @return 
+     */
     public static String addExam(){
         return "";
     }
     
+    /**
+     * 
+     */
     public static void prepareAssignmentPanel(){
         String jsonExams = Person.sendRequest("get_exams");
         String jsonGroups = Person.sendRequest("get_groups");
@@ -60,6 +71,9 @@ public class Teacher extends Person{
             frame.listaGrup1.addItem(s);
     }
     
+    /**
+     * 
+     */
     public static void assignExamToGroup(){
         JSONObject request = new JSONObject();
         JSONObject assignment = new JSONObject();
@@ -82,12 +96,49 @@ public class Teacher extends Person{
         }
     }
     
+    /**
+     * 
+     * @return 
+     */
     public static String checkAnswears(){
         return "";
     }
     
-    public static String viewAnswears(){
-        return "";
+    /**
+     * 
+     */
+    public static void viewAnswears(){
+        String jsonResults = Person.sendRequest("view_results");
+        String statusResults = ServerHandler.parseServerResponse(jsonResults);
+        Vector<String> data = new Vector<>();
+        
+        if( !statusResults.contains("ok") ){
+            JOptionPane.showMessageDialog(frame, statusResults);
+            frame.showPanel("TeacherPanel");
+            return;
+        }
+        
+        JSONObject obj = new JSONObject(jsonResults).getJSONObject("students_answears");
+        
+        Iterator iter = obj.keys();
+        for (int i=0; i<obj.length(); i++){
+            String student = (String)iter.next();
+            data.add(student + " :");
+            
+            JSONArray arr = obj.getJSONArray(student);
+            for (int j=0; j<arr.length(); j++){
+                JSONObject egzam = arr.getJSONObject(j);
+                String egzaminName = egzam.getString("egzamin");
+                double scored = egzam.getDouble("score");
+                double max = egzam.getDouble("max");
+
+                data.add("      " + egzaminName + " : " + (int)((scored/max)*100) + " %");
+            }
+            data.add(" ");
+        }
+        
+        frame.ListaWynikiEgzaminow1.setListData(data);
+        
     }
     
 }
