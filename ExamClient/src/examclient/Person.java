@@ -9,8 +9,8 @@ import layout.ApplicationFrame;
 import org.json.JSONObject;
 
 /**
- *  Klasa abstrakcyjna przechowujaca adres ip serwera, login zalogowanego uzytkownika
- *  oraz id sesji.
+ *  Klasa abstrakcyjna przechowujaca adres ip serwera, login zalogowanego uzytkownika,
+ *  id sesji i obiekt reprezentujacy aktywne GUI aplikacji.
  * 
  *  @author mariusz
  */
@@ -41,12 +41,14 @@ public abstract class Person {
      * 
      * @param login         Login zalogowanego uzytkownika.
      * @param session_id    ID sesji nadany przez serwer.
+     * @param kl            Obiekt TCPClient do obslugi komunikacji z serwerem.
+     * @param fr            Obiekt ApplicationFrame: aktywne okno aplikacji. 
      */
     public Person(String login, String session_id, TCPClient kl, ApplicationFrame fr){
         this.login = login;
-        this.session_id = session_id;
-        this.klient = kl;
-        this.frame = fr;
+        Person.session_id = session_id;
+        Person.klient = kl;
+        Person.frame = fr;
     }
 
     /**
@@ -68,7 +70,8 @@ public abstract class Person {
     }
     
     /**
-     *  Przeslanie do serwera komunikatu log_out oraz wyczyszczenie pol obiektu.
+     *  Przeslanie do serwera komunikatu log_out oraz wyczyszczenie pol tej klasy.
+     * 
      * @return 
      */
     public String logOut(){
@@ -81,6 +84,13 @@ public abstract class Person {
         return klient.sendToServer(msg.toString());
     }
     
+    /**
+     * Wyslanie do serwera zadania o trzesci przekazanej w parametrze i id serwera
+     * pobranym z pola klasy.
+     *  
+     * @param req   String: tresc zadania do serwera.
+     * @return      String: odpowiedz serwera.
+     */
     public static String sendRequest(String req){
         JSONObject msg = new JSONObject();
         msg.put(req, session_id);

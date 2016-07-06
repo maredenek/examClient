@@ -11,6 +11,7 @@ import examclient.Person;
 import examclient.Student;
 import examclient.Teacher;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,7 +22,7 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private static Person rola;
 
     /**
-     * Creates new form ApplicationFrame
+     * Konstruktor. Inicjuje wszystkie komponenty GUI.
      */
     public ApplicationFrame() {
         initComponents();
@@ -871,7 +872,7 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_choosePanelButtonTeacherActionPerformed
 
     private void StudentButtonDoExamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudentButtonDoExamActionPerformed
-        System.out.println( Person.sendRequest("do_exam") );
+        JOptionPane.showMessageDialog(this, "Funkcjonalnosc dostepna w kolejnych wersjach systemu.");
     }//GEN-LAST:event_StudentButtonDoExamActionPerformed
 
     private void StudentButtonCheckResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudentButtonCheckResultsActionPerformed
@@ -880,11 +881,11 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_StudentButtonCheckResultsActionPerformed
 
     private void TeacherButtonAddExamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeacherButtonAddExamActionPerformed
-        System.out.println( Person.sendRequest("add_exam") );
+        JOptionPane.showMessageDialog(this, "Funkcjonalnosc dostepna w kolejnych wersjach systemu.");
     }//GEN-LAST:event_TeacherButtonAddExamActionPerformed
 
     private void TeacherButtonCheckAnswearsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeacherButtonCheckAnswearsActionPerformed
-        System.out.println( Person.sendRequest("check_answears") );
+        JOptionPane.showMessageDialog(this, "Funkcjonalnosc dostepna w kolejnych wersjach systemu.");
     }//GEN-LAST:event_TeacherButtonCheckAnswearsActionPerformed
 
     private void TeacherButtonAssignExamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeacherButtonAssignExamActionPerformed
@@ -951,7 +952,9 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
-     * @param args the command line arguments
+     *  Metoda main. Tworzy nowy wątek, w którym pracuje GUI.
+     * 
+     *  @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -978,15 +981,13 @@ public final class ApplicationFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ApplicationFrame().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new ApplicationFrame().setVisible(true);
         });
     }
     
     /**
-     * Ustawia visibility panelu przekazanego w argumencie na true, reszty na false. 
+     * Ustawia widoczność panelu przekazanego w argumencie na true, reszty na false. 
      * 
      * @param name String: nazwa panelu.
      */
@@ -1002,48 +1003,54 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     }
     
     /**
+     *  Metoda do inicjalizowania zmiennej 'role'.
      * 
-     * @param p 
+     * @param p     Parametr typu 'Person': rola uzytkownika po zalogowaniu.
      */
     public void setRole(Person p){
         rola = p;
     }
     
     /**
+     *  Metoda pobierania adresu IP serwera wpisanego w formularzu logowania.
      * 
-     * @return 
+     *  @return     String: adres IP serwera.
      */
     public String getServerAddr(){
         return serverAddress.getText();
     }
 
     /**
+     *  Metoda do pobierania loginu wpisanego w formularzu logowania.
      * 
-     * @return 
+     * @return  String: login wpisany w formularzu logowania.
      */
     public String getLogin() {
         return login.getText();
     }
 
     /**
+     *  Metoda do pobierania hasla wpisanego w formularzu logowania.
      * 
-     * @return 
+     * @return  String: haslo wpisane w formularzu logowania.
      */
     public String getPassword() {
         return password.getText();
     }
 
     /**
+     *  Metoda do pobierania numeru portu serwera wpisanego w formularzu logowania.
      * 
-     * @return 
+     *  @return     String: port wpisany w formularzu logowania.
      */
     public String getServerPort() {
         return serverPort.getText();
     }
     
     /**
+     *  Metoda do pobierania nazwy grupy wybranej z selecta na formularzu nauczyciela.
      * 
-     * @return 
+     * @return  String: nazwa grupy wybranej przez uzytkownika.
      */
     public String getNewGroupName(){
         return nazwaGrupy.getText();

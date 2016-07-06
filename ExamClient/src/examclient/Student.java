@@ -6,7 +6,6 @@
 package examclient;
 
 import static examclient.Person.frame;
-import java.util.Vector;
 import javax.swing.JOptionPane;
 import layout.ApplicationFrame;
 import org.json.JSONArray;
@@ -25,21 +24,27 @@ public class Student extends Person{
      * @param login         String - login użytkownika.
      * @param session_id    String - id sesji.
      * @param kl            Obiekt TCPClient do obslugi polaczenia z serwerem.
+     * @param fr            ApplicationFrame: aktywne GUI aplikacji.
      */
     public Student(String login, String session_id, TCPClient kl, ApplicationFrame fr){
         super(login, session_id, kl, fr);
     }
     
     /**
+     * Akcja wykonywana po kliknieciu buttona "Rozwiaz egzamin" na panelu Studenta:
+     * pobiera liste dostepnych egzaminow z serwera i umozliwia studentowi
+     * rozwiazanie jednego z nich - do zaimplementowania w przyszlosci.
      * 
-     * @return 
+     * @return  String: tresc do ustalenia w trakcie implementacji.
      */
     public static String doExam(){
         return "";
     }
     
     /**
-     * 
+     * Akcja wykonywana po kliknieciu buttona "Sprawdz wyniki" na panelu Studenta:
+     * pobierane sa z serwera wyniki egzaminow zalogowanego studenta i prezentowane
+     * na kolejnym panelu.
      */
     public static void checkResults(){
         String results = sendRequest("get_answears");

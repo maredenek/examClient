@@ -34,15 +34,18 @@ public class Teacher extends Person{
     }
     
     /**
+     *  Metoda obslugujaca funkcjonalnosc dodawania egzaminu - do implementacji w przyszlosci.
      * 
-     * @return 
+     *  @return     String: do ustalenia podczas implementacji.
      */
     public static String addExam(){
         return "";
     }
     
     /**
-     * 
+     * Akca wykonywana po kliknieciu buttona "Przypisz egzamin grupie" na panelu Egzaminatora: 
+     * wysylane sa zadania do serwera i na podstawie zwroconych danych
+     * uzupelniane sa selecty na kolejnym panelu.
      */
     public static void prepareAssignmentPanel(){
         String jsonExams = Person.sendRequest("get_exams");
@@ -72,7 +75,9 @@ public class Teacher extends Person{
     }
     
     /**
-     * 
+     * Akcja wykonywana po kliknieciu buttona "Przypisz" na panelu przypisywania
+     * egzaminu do grupy: wysyla do serwera zadanie przypisania wybranego egzaminu 
+     * do wskazanej grupy.
      */
     public static void assignExamToGroup(){
         JSONObject request = new JSONObject();
@@ -89,23 +94,26 @@ public class Teacher extends Person{
         
         if( !response.equals("ok") ){
             JOptionPane.showMessageDialog(frame, response);
-            frame.showPanel("AdminPanel");
+            frame.showPanel("TeacherPanel");
         }else{
             JOptionPane.showMessageDialog(frame, "Przypisano egzamin grupie");
-            frame.showPanel("AdminPanel");
+            frame.showPanel("TeacherPanel");
         }
     }
     
     /**
+     * Metoda obslugujaca funkcjonalnosc do zlecania sprawdzania wynikow odpowiedzi
+     * uczniow przeslanych do serwera - zostanie zaimplementowana w przyszlosci.
      * 
-     * @return 
+     * @return  String: tresc do ustalenia podczas implementacji.
      */
     public static String checkAnswears(){
         return "";
     }
     
     /**
-     * 
+     * Metoda wysyla zadanie do serwera o wyniki egzaminow uczniow i prezentuje
+     * je w polu textowym na panelu.
      */
     public static void viewAnswears(){
         String jsonResults = Person.sendRequest("view_results");

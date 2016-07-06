@@ -28,6 +28,10 @@ public class Administrator extends Teacher{
         super(login, session_id, kl, fr);
     }
     
+    /**
+     * Akcja wykonywana po kliknieciu buttona "Dodaj grupe" na panelu 
+     * Administrator: pobiera nazwe grupy wpisana przez uzytkownika i wysyla do serwera zadanie.
+     */
     public static void addGroup(){
         
         JSONObject msg = new JSONObject();
@@ -66,7 +70,8 @@ public class Administrator extends Teacher{
     }
     
     /**
-     * 
+     * Akcja po kliknieciu buttona "Przypisz studenta do grupy": wysyla zadanie 
+     * do serwera o dane studentow i grup, nastepnie prezentuje je na formularzu.
      */
     public static void prepareAssignmentPanel(){
         
@@ -98,7 +103,8 @@ public class Administrator extends Teacher{
     }
     
     /**
-     * 
+     * Akcja wykonywana po kliknieciu buttona "Przypisz" na panelu przypisywania 
+     * studenta do grupy: wysyla dane z selectow z formularza i wysyla zadanie do serwera.
      */
     public static void assignStudentToGroup(){
         
@@ -125,9 +131,10 @@ public class Administrator extends Teacher{
     }
     
     /**
+     * Metoda konwertuje string w formacie JSON na tablice stringow.
      * 
-     * @param json
-     * @return 
+     * @param json  String: dane w formacie JSONObject
+     * @return      String[]: tablica stringow z danymi.
      */
     public static String[] getTab(String json){
         

@@ -22,8 +22,8 @@ public class LoginPage{
     /**
      * Metoda sprawdza czy pola formularza zostały uzupełnione. 
      * 
-     * @param fr
-     * @return  True: jeżeli przynajmniej jedno pole jest puste, false: w p.p.
+     * @param fr    ApplicationForm: aktywne GUI aplikacji.
+     * @return      True: jeżeli przynajmniej jedno pole jest puste, false: w p.p.
      */
     public static boolean areFieldsEmpty(ApplicationFrame fr){
         
@@ -40,9 +40,9 @@ public class LoginPage{
     }
     
     /**
-     * Event po kliknięciu przycisku "Zaloguj" na formularzu logowania.
+     * Akcja po kliknięciu przycisku "Zaloguj" na formularzu logowania.
      * 
-     * @param frame     Frame aplikacji.
+     * @param frame     ApplicationForm: aktywne GUI aplikacji.
      */
     public static void logIn(ApplicationFrame frame){
         appFrame = frame;
@@ -93,10 +93,10 @@ public class LoginPage{
     }
     
     /**
+     * Metoda do sprawdzania, ktory formularz ma zostac zaprezentowany uzytkownikowi
+     * na podstawie id sesji nadanej przez serwer.
      * 
      * @param sessionID
-     * @param fr
-     * @param client 
      */
     public static void chooseRole(String sessionID){
         String role = ""+sessionID.charAt(32);

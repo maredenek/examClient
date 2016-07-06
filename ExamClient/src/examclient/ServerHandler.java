@@ -8,15 +8,20 @@ package examclient;
 import org.json.JSONObject;
 
 /**
- *
+ *  Klasa do sprawdzania komunikatow zwracanych przez serwer.
+ * 
  * @author mariusz
  */
 public class ServerHandler {
     
     /**
+     * Statyczna metoda do sprawdzania tresci komunikatow przeslanych przez serwer.
+     * W przypadku nierozpoznania komunikatu nie jest wykonywana zadna akcja ze strony
+     * klienta.
      * 
-     * @param str
-     * @return 
+     * @param str   String: tresc komunikatu od serwera.
+     * @return      OK: jezeli komunikat zostal rozpoznany i odpowiedni komunikat
+     *              w przeciwnym przypadku.
      */
     public static String parseServerResponse(String str){
         
