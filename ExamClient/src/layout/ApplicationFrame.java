@@ -855,7 +855,7 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_choosePanelButtonAdminActionPerformed
 
     private void StudentButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudentButtonLogOutActionPerformed
-        System.out.println(rola.logOut());
+        rola.logOut();
         showPanel("LoginPanel");
     }//GEN-LAST:event_StudentButtonLogOutActionPerformed
 
