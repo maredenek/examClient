@@ -7,9 +7,13 @@ package examclient;
 
 import static examclient.Administrator.getTab;
 import static examclient.Person.frame;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Vector;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 import layout.ApplicationFrame;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,6 +24,8 @@ import org.json.JSONObject;
  *  @author mariusz
  */
 public class Teacher extends Person{
+    
+    private static JSONArray egzam = new JSONArray();
     
     /**
      * Konstruktor.
@@ -34,12 +40,40 @@ public class Teacher extends Person{
     }
     
     /**
-     *  Metoda obslugujaca funkcjonalnosc dodawania egzaminu - do implementacji w przyszlosci.
+     *  Akcja wykonywana po kliknieciu button "Wyslij" na panelu dodawania egzaminu: 
+     *  obsluguje funkcjonalnosc dodawania egzaminu.
      * 
-     *  @return     String: do ustalenia podczas implementacji.
      */
-    public static String addExam(){
-        return "";
+    public static void addExam(){
+        
+        JSONObject req = new JSONObject();
+        JSONObject node = new JSONObject();
+        
+        if( frame.TeacherNazwaEgzaminu.getText().equals("") ){
+            JOptionPane.showMessageDialog(frame, "Nazwa egzaminu nie moze byc pusta!");
+            return;
+        }
+        
+        if( !frame.TeacherTrescPytania.getText().equals("") )
+            addNextQuestion();
+
+        node.put(frame.TeacherNazwaEgzaminu.getText(), egzam);
+        req.put("add_exam", node);
+        //req.put("add_exam", session_id);
+        
+        String response = ServerHandler.parseServerResponse(
+                klient.sendToServer(req.toString())
+        );
+        
+        if( !response.equals("ok") ){
+            JOptionPane.showMessageDialog(frame, response);
+            frame.showPanel("TeacherPanel");
+        }else{
+            JOptionPane.showMessageDialog(frame, "Dodano egzamin!");
+            frame.showPanel("TeacherPanel");
+        }
+        
+        egzam = new JSONArray();
     }
     
     /**
@@ -147,6 +181,91 @@ public class Teacher extends Person{
         
         frame.ListaWynikiEgzaminow1.setListData(data);
         
+    }
+    
+    /**
+     * Akcja wykonywana po kliknieciu przycisku "Dodaj egzamin" na panelu Egzaminatora: 
+     * przygotowuje panel dodawania egzaminu przez nauczyciela: spina radio buttony 
+     * w grupe i czysci wszystkie pola formularza.
+     */
+    public static void prepareAddingExamPanel(){
+        ButtonGroup group = new ButtonGroup();
+        
+        group.add(frame.TeacherRadio1);
+        group.add(frame.TeacherRadio2);
+        group.add(frame.TeacherRadio3);
+        group.add(frame.TeacherRadio4);
+        group.add(frame.TeacherRadio5);
+        
+        frame.TeacherNazwaEgzaminu.setText("");
+        frame.TeacherTrescPytania.setText("");
+        frame.TeacherOdpowiedz1.setText("");
+        frame.TeacherOdpowiedz2.setText("");
+        frame.TeacherOdpowiedz3.setText("");
+        frame.TeacherOdpowiedz4.setText("");
+        frame.TeacherOdpowiedz5.setText("");
+    }
+    
+    /**
+     * Akcja wykonywana po kliknieciu button "Dodaj nastepne" na panelu dodawnia egzaminu: 
+     * dodaje kolejne pytanie z formularza do egzaminu.
+     */
+    public static void addNextQuestion(){
+        
+        ArrayList<JTextField> odpowiedzi = new ArrayList<>();
+        odpowiedzi.add(frame.TeacherOdpowiedz1);
+        odpowiedzi.add(frame.TeacherOdpowiedz2);
+        odpowiedzi.add(frame.TeacherOdpowiedz3);
+        odpowiedzi.add(frame.TeacherOdpowiedz4);
+        odpowiedzi.add(frame.TeacherOdpowiedz5);
+        
+        ArrayList<JRadioButton> buttons = new ArrayList<>();
+        buttons.add(frame.TeacherRadio1);
+        buttons.add(frame.TeacherRadio2);
+        buttons.add(frame.TeacherRadio3);
+        buttons.add(frame.TeacherRadio4);
+        buttons.add(frame.TeacherRadio5);
+        
+        if ( frame.TeacherTrescPytania.getText().equals("") ){
+            JOptionPane.showMessageDialog(frame, "Treść pytania nie może być pusta!");
+            return;
+        }
+        
+        if ( frame.TeacherOdpowiedz1.getText().equals("") || frame.TeacherOdpowiedz2.getText().equals("") ){
+            JOptionPane.showMessageDialog(frame, "Conajmniej 2 odpowiedzi musza zostac podane!");
+            return;
+        }
+        
+        JSONArray answears = new JSONArray();
+        
+        for (int i=1; i<6; i++){
+            JSONObject obj = new JSONObject();
+            int selected = buttons.get(i-1).isSelected() == true ? 1 : 0;
+            
+            obj.put(Integer.toString(i), odpowiedzi.get(i-1).getText() );
+            obj.put("true", Integer.toString(selected));
+            
+            answears.put(obj);
+        }
+        
+        JSONObject question = new JSONObject();
+        
+        question.put("tresc", frame.TeacherTrescPytania.getText());
+        question.put("odpowiedz", answears);
+        
+        egzam.put(question);
+        
+        String name = frame.TeacherNazwaEgzaminu.getText();
+        prepareAddingExamPanel();
+        frame.TeacherNazwaEgzaminu.setText(name);
+    }
+    
+    /**
+     * Metoda wykonywana po kliknieciu przycisku "wróć" na panelu dodawania egzaminu:
+     * czysci obiekt JSON reprezentujacy egzamin.
+     */
+    public static void clearExam(){
+        egzam = new JSONArray();
     }
     
 }

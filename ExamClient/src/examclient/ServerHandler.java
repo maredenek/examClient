@@ -48,6 +48,8 @@ public class ServerHandler {
                 return "ok";
             case "students_answears":
                 return "ok";
+            case "exam_added":
+                return "ok";
             default:
                 return ("Nie rozpoznano odpowiedzi serwera: " + str);
                 

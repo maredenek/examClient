@@ -110,9 +110,33 @@ public final class ApplicationFrame extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         ListaWynikiEgzaminow1 = new javax.swing.JList<>();
         jLabel23 = new javax.swing.JLabel();
+        TeacherDodawanieEgzaminu = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        TeacherOdpowiedz2 = new javax.swing.JTextField();
+        TeacherOdpowiedz1 = new javax.swing.JTextField();
+        TeacherOdpowiedz3 = new javax.swing.JTextField();
+        TeacherOdpowiedz4 = new javax.swing.JTextField();
+        TeacherOdpowiedz5 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        TeacherRadio1 = new javax.swing.JRadioButton();
+        TeacherRadio2 = new javax.swing.JRadioButton();
+        TeacherRadio3 = new javax.swing.JRadioButton();
+        TeacherRadio4 = new javax.swing.JRadioButton();
+        TeacherRadio5 = new javax.swing.JRadioButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TeacherTrescPytania = new javax.swing.JTextArea();
+        TeacherNastepnePytanie = new javax.swing.JButton();
+        TeacherWyslijEgzamin = new javax.swing.JButton();
+        TeacherNazwaEgzaminu = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(780, 507));
         setMinimumSize(new java.awt.Dimension(780, 507));
+        setPreferredSize(new java.awt.Dimension(780, 507));
         getContentPane().setLayout(new java.awt.CardLayout());
 
         LoginPanel.setMaximumSize(new java.awt.Dimension(779, 506));
@@ -471,7 +495,7 @@ public final class ApplicationFrame extends javax.swing.JFrame {
                 .addComponent(choosePanelButtonAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(95, 95, 95)
                 .addComponent(choosePanelButtonTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         chooseRolePanelLayout.setVerticalGroup(
             chooseRolePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -536,7 +560,7 @@ public final class ApplicationFrame extends javax.swing.JFrame {
                                 .addComponent(jLabel12)
                                 .addGap(18, 18, 18)
                                 .addComponent(nazwaGrupy, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 217, Short.MAX_VALUE)))
+                        .addGap(0, 261, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(AdminDodajGrupeLayout.createSequentialGroup()
                 .addContainerGap()
@@ -625,7 +649,7 @@ public final class ApplicationFrame extends javax.swing.JFrame {
                                 .addComponent(jLabel16)
                                 .addGap(18, 18, 18)
                                 .addComponent(listaGrup, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 68, Short.MAX_VALUE)))
+                        .addGap(0, 112, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         AdminPrzypiszStudentaGrupieLayout.setVerticalGroup(
@@ -643,7 +667,7 @@ public final class ApplicationFrame extends javax.swing.JFrame {
                     .addComponent(jLabel16))
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18))
         );
@@ -712,7 +736,7 @@ public final class ApplicationFrame extends javax.swing.JFrame {
                                 .addComponent(jLabel19)
                                 .addGap(18, 18, 18)
                                 .addComponent(listaGrup1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 68, Short.MAX_VALUE)))
+                        .addGap(0, 112, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         TeacherPrzypiszEgzaminGrupieLayout.setVerticalGroup(
@@ -766,7 +790,7 @@ public final class ApplicationFrame extends javax.swing.JFrame {
                 .addGroup(StudentWynikiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel20)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(651, Short.MAX_VALUE))
+                .addContainerGap(695, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StudentWynikiLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(StudentWynikiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -819,7 +843,7 @@ public final class ApplicationFrame extends javax.swing.JFrame {
                 .addGroup(TeacherWynikiStudentowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel22)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(620, Short.MAX_VALUE))
+                .addContainerGap(664, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TeacherWynikiStudentowLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(TeacherWynikiStudentowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -842,6 +866,145 @@ public final class ApplicationFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(TeacherWynikiStudentow, "card10");
+
+        TeacherDodawanieEgzaminu.setName("TeacherDodawanieEgzaminu"); // NOI18N
+
+        jLabel24.setText("Panel Egzaminatora");
+
+        jButton8.setText("⃪ wróć");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jLabel25.setText("Treść pytania:");
+
+        jLabel26.setText("Odpowiedzi:");
+
+        jLabel27.setText("Czy poprawna:");
+
+        TeacherRadio1.setSelected(true);
+
+        TeacherTrescPytania.setColumns(20);
+        TeacherTrescPytania.setRows(5);
+        jScrollPane3.setViewportView(TeacherTrescPytania);
+
+        TeacherNastepnePytanie.setText("Dodaj nastepne");
+        TeacherNastepnePytanie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TeacherNastepnePytanieActionPerformed(evt);
+            }
+        });
+
+        TeacherWyslijEgzamin.setText("Wyslij");
+        TeacherWyslijEgzamin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TeacherWyslijEgzaminActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setText("Nazwa:");
+
+        javax.swing.GroupLayout TeacherDodawanieEgzaminuLayout = new javax.swing.GroupLayout(TeacherDodawanieEgzaminu);
+        TeacherDodawanieEgzaminu.setLayout(TeacherDodawanieEgzaminuLayout);
+        TeacherDodawanieEgzaminuLayout.setHorizontalGroup(
+            TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TeacherDodawanieEgzaminuLayout.createSequentialGroup()
+                .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(TeacherDodawanieEgzaminuLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26)
+                            .addGroup(TeacherDodawanieEgzaminuLayout.createSequentialGroup()
+                                .addComponent(jLabel25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(TeacherNazwaEgzaminu)
+                                    .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel27)
+                                        .addGroup(TeacherDodawanieEgzaminuLayout.createSequentialGroup()
+                                            .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(TeacherOdpowiedz2, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+                                                .addComponent(TeacherOdpowiedz1))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(TeacherRadio1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(TeacherRadio2, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addComponent(jScrollPane3)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TeacherDodawanieEgzaminuLayout.createSequentialGroup()
+                                        .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(TeacherOdpowiedz5, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+                                            .addComponent(TeacherOdpowiedz3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+                                            .addComponent(TeacherOdpowiedz4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(TeacherRadio4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(TeacherRadio5, javax.swing.GroupLayout.Alignment.TRAILING))
+                                            .addComponent(TeacherRadio3)))))))
+                    .addGroup(TeacherDodawanieEgzaminuLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addGroup(TeacherDodawanieEgzaminuLayout.createSequentialGroup()
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TeacherNastepnePytanie)
+                                .addGap(11, 11, 11))))
+                    .addGroup(TeacherDodawanieEgzaminuLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(TeacherWyslijEgzamin, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+        );
+        TeacherDodawanieEgzaminuLayout.setVerticalGroup(
+            TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TeacherDodawanieEgzaminuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel24)
+                .addGap(17, 17, 17)
+                .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TeacherNazwaEgzaminu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28))
+                .addGap(8, 8, 8)
+                .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(jLabel27))
+                .addGap(15, 15, 15)
+                .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TeacherOdpowiedz1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TeacherRadio1))
+                .addGap(18, 18, 18)
+                .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TeacherOdpowiedz2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TeacherRadio2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TeacherOdpowiedz3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TeacherRadio3))
+                .addGap(18, 18, 18)
+                .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TeacherOdpowiedz4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TeacherRadio4))
+                .addGap(18, 18, 18)
+                .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TeacherOdpowiedz5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TeacherRadio5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(TeacherDodawanieEgzaminuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton8)
+                    .addComponent(TeacherNastepnePytanie)
+                    .addComponent(TeacherWyslijEgzamin))
+                .addGap(30, 30, 30))
+        );
+
+        getContentPane().add(TeacherDodawanieEgzaminu, "card12");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -881,7 +1044,8 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_StudentButtonCheckResultsActionPerformed
 
     private void TeacherButtonAddExamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeacherButtonAddExamActionPerformed
-        JOptionPane.showMessageDialog(this, "Funkcjonalnosc dostepna w kolejnych wersjach systemu.");
+        showPanel("TeacherDodawanieEgzaminu");
+        Teacher.prepareAddingExamPanel();
     }//GEN-LAST:event_TeacherButtonAddExamActionPerformed
 
     private void TeacherButtonCheckAnswearsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeacherButtonCheckAnswearsActionPerformed
@@ -950,6 +1114,19 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         showPanel("TeacherPanel");
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        Teacher.clearExam();
+        showPanel("TeacherPanel");
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void TeacherWyslijEgzaminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeacherWyslijEgzaminActionPerformed
+        Teacher.addExam();
+    }//GEN-LAST:event_TeacherWyslijEgzaminActionPerformed
+
+    private void TeacherNastepnePytanieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeacherNastepnePytanieActionPerformed
+        Teacher.addNextQuestion();
+    }//GEN-LAST:event_TeacherNastepnePytanieActionPerformed
 
     /**
      *  Metoda main. Tworzy nowy wątek, w którym pracuje GUI.
@@ -1081,9 +1258,24 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private javax.swing.JButton TeacherButtonCheckAnswears;
     private javax.swing.JButton TeacherButtonLogOut;
     private javax.swing.JButton TeacherButtonViewAnswears;
+    private javax.swing.JPanel TeacherDodawanieEgzaminu;
+    private javax.swing.JButton TeacherNastepnePytanie;
+    public javax.swing.JTextField TeacherNazwaEgzaminu;
+    public javax.swing.JTextField TeacherOdpowiedz1;
+    public javax.swing.JTextField TeacherOdpowiedz2;
+    public javax.swing.JTextField TeacherOdpowiedz3;
+    public javax.swing.JTextField TeacherOdpowiedz4;
+    public javax.swing.JTextField TeacherOdpowiedz5;
     private javax.swing.JPanel TeacherPanel;
     private javax.swing.JPanel TeacherPrzypiszEgzaminGrupie;
+    public javax.swing.JRadioButton TeacherRadio1;
+    public javax.swing.JRadioButton TeacherRadio2;
+    public javax.swing.JRadioButton TeacherRadio3;
+    public javax.swing.JRadioButton TeacherRadio4;
+    public javax.swing.JRadioButton TeacherRadio5;
+    public javax.swing.JTextArea TeacherTrescPytania;
     private javax.swing.JPanel TeacherWynikiStudentow;
+    private javax.swing.JButton TeacherWyslijEgzamin;
     private javax.swing.JButton choosePanelButtonAdmin;
     private javax.swing.JButton choosePanelButtonTeacher;
     private javax.swing.JPanel chooseRolePanel;
@@ -1094,6 +1286,7 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1110,6 +1303,11 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1119,6 +1317,7 @@ public final class ApplicationFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JComboBox<String> listaEgzaminow;
     public javax.swing.JComboBox<String> listaGrup;
     public javax.swing.JComboBox<String> listaGrup1;
